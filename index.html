@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oluwasurefunmi Daniel Ariyo — Social Media Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=IBM+Plex+Mono:wght@300;400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0a2540;
+  --blue: #0057b8;
+  --sky: #e0ecff;
+  --gold: #c8902a;
+  --ink: #0d0d0d;
+  --grey: #5a5a6a;
+  --light: #f6f8fc;
+  --white: #ffffff;
+  --rule: #dde4f0;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘Manrope’, sans-serif;
+background: var(–white);
+color: var(–ink);
+overflow-x: hidden;
+}
+
+/* ── NOISE TEXTURE OVERLAY ── */
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 256 256’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘noise’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23noise)’ opacity=‘0.03’/%3E%3C/svg%3E”);
+pointer-events: none;
+z-index: 9999;
+opacity: 0.4;
+}
+
+/* ── HERO ── */
+.hero {
+min-height: 100vh;
+background: var(–navy);
+position: relative;
+display: flex;
+flex-direction: column;
+justify-content: center;
+padding: 80px 8vw;
+overflow: hidden;
+}
+
+.hero::after {
+content: ‘’;
+position: absolute;
+bottom: -1px;
+left: 0; right: 0;
+height: 80px;
+background: var(–white);
+clip-path: ellipse(55% 100% at 50% 100%);
+}
+
+.hero-bg-circle {
+position: absolute;
+width: 600px; height: 600px;
+border-radius: 50%;
+background: radial-gradient(circle, rgba(0,87,184,0.2) 0%, transparent 70%);
+top: -100px; right: -100px;
+pointer-events: none;
+}
+
+.hero-tag {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–blue);
+background: rgba(0,87,184,0.15);
+display: inline-block;
+padding: 6px 14px;
+border: 1px solid rgba(0,87,184,0.3);
+margin-bottom: 28px;
+opacity: 0;
+animation: fadeUp 0.6s 0.2s ease forwards;
+}
+
+.hero h1 {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(38px, 6vw, 72px);
+font-weight: 900;
+color: var(–white);
+line-height: 1.05;
+letter-spacing: -0.02em;
+max-width: 700px;
+opacity: 0;
+animation: fadeUp 0.7s 0.35s ease forwards;
+}
+
+.hero h1 em {
+font-style: italic;
+color: #6aabff;
+}
+
+.hero-sub {
+margin-top: 24px;
+font-size: 16px;
+color: rgba(255,255,255,0.6);
+max-width: 520px;
+line-height: 1.7;
+font-weight: 400;
+opacity: 0;
+animation: fadeUp 0.7s 0.5s ease forwards;
+}
+
+.hero-contact {
+margin-top: 40px;
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+opacity: 0;
+animation: fadeUp 0.7s 0.65s ease forwards;
+}
+
+.contact-chip {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+color: rgba(255,255,255,0.7);
+background: rgba(255,255,255,0.07);
+border: 1px solid rgba(255,255,255,0.12);
+padding: 8px 16px;
+border-radius: 100px;
+letter-spacing: 0.04em;
+transition: background 0.2s, color 0.2s;
+text-decoration: none;
+}
+
+.contact-chip:hover {
+background: rgba(0,87,184,0.3);
+color: #fff;
+}
+
+.scroll-hint {
+position: absolute;
+bottom: 100px;
+left: 8vw;
+display: flex;
+align-items: center;
+gap: 10px;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.3);
+opacity: 0;
+animation: fadeUp 0.7s 0.9s ease forwards;
+}
+
+.scroll-line {
+width: 40px; height: 1px;
+background: rgba(255,255,255,0.2);
+}
+
+/* ── SECTIONS ── */
+section {
+padding: 90px 8vw;
+}
+
+.section-tag {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.2em;
+text-transform: uppercase;
+color: var(–blue);
+margin-bottom: 12px;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.section-tag::after {
+content: ‘’;
+flex: 1;
+max-width: 40px;
+height: 1px;
+background: var(–blue);
+}
+
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(28px, 4vw, 44px);
+font-weight: 700;
+color: var(–navy);
+line-height: 1.15;
+letter-spacing: -0.02em;
+margin-bottom: 48px;
+}
+
+/* ── ABOUT ── */
+.about {
+background: var(–white);
+}
+
+.about-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+align-items: start;
+}
+
+.about-text p {
+font-size: 16px;
+line-height: 1.8;
+color: var(–grey);
+margin-bottom: 20px;
+font-weight: 400;
+}
+
+.about-text strong {
+color: var(–ink);
+font-weight: 700;
+}
+
+.stats-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 20px;
+}
+
+.stat-card {
+background: var(–navy);
+padding: 28px 24px;
+position: relative;
+overflow: hidden;
+}
+
+.stat-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+width: 3px; height: 100%;
+background: var(–blue);
+}
+
+.stat-num {
+font-family: ‘Playfair Display’, serif;
+font-size: 36px;
+font-weight: 900;
+color: #6aabff;
+display: block;
+line-height: 1;
+margin-bottom: 6px;
+}
+
+.stat-label {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9.5px;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: rgba(255,255,255,0.5);
+}
+
+/* ── CASE STUDY ── */
+.case-study {
+background: var(–light);
+}
+
+.case-card {
+background: var(–white);
+border: 1px solid var(–rule);
+padding: 48px;
+position: relative;
+overflow: hidden;
+margin-bottom: 24px;
+}
+
+.case-card::after {
+content: ‘’;
+position: absolute;
+top: 0; left: 0;
+height: 4px; width: 100%;
+background: linear-gradient(90deg, var(–navy), var(–blue));
+}
+
+.case-number {
+font-family: ‘Playfair Display’, serif;
+font-size: 80px;
+font-weight: 900;
+color: var(–sky);
+position: absolute;
+top: 24px; right: 40px;
+line-height: 1;
+pointer-events: none;
+}
+
+.case-tag {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–blue);
+background: var(–sky);
+padding: 4px 12px;
+display: inline-block;
+margin-bottom: 16px;
+}
+
+.case-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 26px;
+font-weight: 700;
+color: var(–navy);
+margin-bottom: 12px;
+line-height: 1.2;
+}
+
+.case-sub {
+font-size: 13px;
+color: var(–grey);
+font-family: ‘IBM Plex Mono’, monospace;
+letter-spacing: 0.04em;
+margin-bottom: 24px;
+}
+
+.case-body {
+font-size: 15px;
+line-height: 1.75;
+color: var(–grey);
+margin-bottom: 28px;
+max-width: 680px;
+}
+
+.case-results {
+display: flex;
+flex-wrap: wrap;
+gap: 12px;
+margin-top: 24px;
+}
+
+.result-pill {
+background: var(–navy);
+color: #6aabff;
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+padding: 8px 18px;
+letter-spacing: 0.06em;
+font-weight: 500;
+}
+
+/* ── SKILLS ── */
+.skills {
+background: var(–navy);
+color: var(–white);
+}
+
+.skills .section-title { color: var(–white); }
+
+.skills-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 2px;
+}
+
+.skill-block {
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.07);
+padding: 32px 28px;
+transition: background 0.2s;
+}
+
+.skill-block:hover {
+background: rgba(0,87,184,0.15);
+}
+
+.skill-block-title {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: var(–blue);
+margin-bottom: 20px;
+padding-bottom: 12px;
+border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.skill-item {
+font-size: 13.5px;
+color: rgba(255,255,255,0.75);
+padding: 5px 0;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.skill-item::before {
+content: ‘›’;
+color: var(–blue);
+font-size: 16px;
+line-height: 1;
+}
+
+/* ── EXPERIENCE ── */
+.experience {
+background: var(–white);
+}
+
+.exp-item {
+display: grid;
+grid-template-columns: 180px 1fr;
+gap: 40px;
+padding: 40px 0;
+border-bottom: 1px solid var(–rule);
+position: relative;
+}
+
+.exp-item:first-of-type { border-top: 1px solid var(–rule); }
+
+.exp-date {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+color: var(–blue);
+letter-spacing: 0.06em;
+padding-top: 4px;
+font-weight: 500;
+}
+
+.exp-role {
+font-family: ‘Playfair Display’, serif;
+font-size: 20px;
+font-weight: 700;
+color: var(–navy);
+margin-bottom: 4px;
+}
+
+.exp-org {
+font-size: 13px;
+color: var(–grey);
+font-weight: 600;
+margin-bottom: 16px;
+font-family: ‘IBM Plex Mono’, monospace;
+letter-spacing: 0.04em;
+}
+
+.exp-bullets {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 8px;
+}
+
+.exp-bullets li {
+font-size: 14px;
+line-height: 1.65;
+color: var(–grey);
+padding-left: 18px;
+position: relative;
+font-weight: 500;
+}
+
+.exp-bullets li::before {
+content: ‘→’;
+position: absolute;
+left: 0;
+color: var(–blue);
+font-size: 13px;
+}
+
+/* ── CONTENT SAMPLES ── */
+.samples {
+background: var(–light);
+}
+
+.samples-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
+}
+
+.sample-card {
+background: var(–white);
+border: 1px solid var(–rule);
+padding: 32px 28px;
+position: relative;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.sample-card:hover {
+transform: translateY(-4px);
+box-shadow: 0 12px 40px rgba(10,37,64,0.1);
+}
+
+.sample-platform {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 9.5px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–blue);
+margin-bottom: 12px;
+display: flex;
+align-items: center;
+gap: 6px;
+}
+
+.sample-platform::before {
+content: ‘’;
+width: 6px; height: 6px;
+border-radius: 50%;
+background: var(–blue);
+}
+
+.sample-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 17px;
+font-weight: 700;
+color: var(–navy);
+margin-bottom: 12px;
+line-height: 1.3;
+}
+
+.sample-text {
+font-size: 13.5px;
+line-height: 1.7;
+color: var(–grey);
+font-weight: 500;
+}
+
+.sample-metric {
+margin-top: 20px;
+padding-top: 16px;
+border-top: 1px solid var(–rule);
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+color: var(–blue);
+letter-spacing: 0.08em;
+}
+
+/* ── CAMPAIGN ── */
+.campaign {
+background: var(–white);
+}
+
+.campaign-card {
+background: var(–navy);
+padding: 56px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+align-items: center;
+position: relative;
+overflow: hidden;
+}
+
+.campaign-card::before {
+content: ‘CAMPAIGN’;
+position: absolute;
+font-family: ‘Playfair Display’, serif;
+font-size: 120px;
+font-weight: 900;
+color: rgba(255,255,255,0.03);
+top: -10px; right: -10px;
+pointer-events: none;
+letter-spacing: -0.05em;
+}
+
+.campaign-label {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 10px;
+letter-spacing: 0.18em;
+text-transform: uppercase;
+color: #6aabff;
+margin-bottom: 16px;
+}
+
+.campaign-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 28px;
+font-weight: 700;
+color: var(–white);
+line-height: 1.2;
+margin-bottom: 20px;
+}
+
+.campaign-body {
+font-size: 14px;
+line-height: 1.75;
+color: rgba(255,255,255,0.6);
+font-weight: 500;
+}
+
+.campaign-outcomes {
+display: flex;
+flex-direction: column;
+gap: 16px;
+}
+
+.outcome {
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+border-left: 3px solid var(–blue);
+padding: 18px 22px;
+}
+
+.outcome-title {
+font-size: 13px;
+font-weight: 700;
+color: var(–white);
+margin-bottom: 4px;
+}
+
+.outcome-desc {
+font-size: 12px;
+color: rgba(255,255,255,0.5);
+font-family: ‘IBM Plex Mono’, monospace;
+letter-spacing: 0.02em;
+}
+
+/* ── FOOTER ── */
+footer {
+background: var(–ink);
+padding: 60px 8vw;
+display: flex;
+justify-content: space-between;
+align-items: center;
+flex-wrap: wrap;
+gap: 24px;
+}
+
+.footer-name {
+font-family: ‘Playfair Display’, serif;
+font-size: 22px;
+font-weight: 700;
+color: var(–white);
+}
+
+.footer-name span {
+color: #6aabff;
+font-style: italic;
+}
+
+.footer-links {
+display: flex;
+gap: 20px;
+flex-wrap: wrap;
+}
+
+.footer-link {
+font-family: ‘IBM Plex Mono’, monospace;
+font-size: 11px;
+color: rgba(255,255,255,0.4);
+letter-spacing: 0.08em;
+text-decoration: none;
+transition: color 0.2s;
+}
+
+.footer-link:hover { color: #6aabff; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(24px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+.reveal {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+opacity: 1;
+transform: none;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+.about-grid,
+.skills-grid,
+.samples-grid,
+.campaign-card { grid-template-columns: 1fr; }
+.exp-item { grid-template-columns: 1fr; gap: 8px; }
+.stats-grid { grid-template-columns: 1fr 1fr; }
+section { padding: 60px 5vw; }
+.case-number { display: none; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- HERO -->
+
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-tag">Social Media Portfolio · 2025</div>
+  <h1>Oluwasurefunmi<br><em>Daniel Ariyo</em></h1>
+  <p class="hero-sub">Social Media Manager · Content Strategist · Digital Growth Specialist. I build audiences, craft stories, and grow brands — organically.</p>
+  <div class="hero-contact">
+    <a class="contact-chip" href="mailto:ariyosurefunmi@gmail.com">ariyosurefunmi@gmail.com</a>
+    <a class="contact-chip" href="tel:+2348137815999">+234 813 781 5999</a>
+    <a class="contact-chip" href="https://linkedin.com/in/oluwasurefunmi-ariyo" target="_blank">LinkedIn</a>
+    <span class="contact-chip">Ibadan, Nigeria · Open to Remote</span>
+  </div>
+  <div class="scroll-hint">
+    <div class="scroll-line"></div>
+    Scroll to explore
+  </div>
+</section>
+
+<!-- ABOUT -->
+
+<section class="about">
+  <div class="section-tag">About Me</div>
+  <h2 class="section-title reveal">Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>I'm a <strong>Social Media Manager and Content Strategist</strong> based in Ibadan, Nigeria, with a proven track record of building engaged audiences from zero — without spending a naira on ads.</p>
+      <p>I founded one of the <strong>fastest-growing anonymous campus blogs</strong> at Achievers University, took it to 1,000+ organic followers within a year, and built a community so strong the page was acquired and converted into a commercial operation after I left.</p>
+      <p>Beyond content, I've managed <strong>full digital product lifecycles</strong>, led winning election campaigns, and bring the precision and accountability of a <strong>triple-certified healthcare professional</strong> into everything I do.</p>
+      <p>I understand what makes people stop scrolling — and I know how to turn that into real growth for a brand.</p>
+    </div>
+    <div class="stats-grid reveal">
+      <div class="stat-card">
+        <span class="stat-num">1,000+</span>
+        <span class="stat-label">Organic Followers Built</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">0₦</span>
+        <span class="stat-label">Paid Promotion Used</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">5 mo.</span>
+        <span class="stat-label">App Lifecycle Managed</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-num">3×</span>
+        <span class="stat-label">Certified Professional</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+
+<section class="case-study">
+  <div class="section-tag">Case Study</div>
+  <h2 class="section-title reveal">Work That Speaks</h2>
+
+  <div class="case-card reveal">
+    <div class="case-number">01</div>
+    <span class="case-tag">Instagram · Campus Blog</span>
+    <h3 class="case-title">Disturbingachievers — Growing an Anonymous Brand to 1,000+ Followers</h3>
+    <p class="case-sub">Achievers University, Owo · 2020 – 2021</p>
+    <p class="case-body">
+      I built and ran one of the fastest-growing anonymous campus blogs at Achievers University entirely from scratch. No budget, no team, no paid promotion — just a deep understanding of what the audience wanted to see and the discipline to show up for it daily.
+      <br><br>
+      I curated trending campus content, wrote captions that sparked conversation, managed a high-volume DM inbox personally, and maintained a consistent anonymous brand identity throughout. The page grew to 1,000+ followers organically within its first year and built a loyal, highly engaged community.
+      <br><br>
+      The page's impact was so significant that when the university banned anonymous campus blogs, another party acquired it and converted it into a commercial business operation — one of the strongest validations a content creator can receive.
+    </p>
+    <div class="case-results">
+      <span class="result-pill">1,000+ organic followers</span>
+      <span class="result-pill">Zero paid promotion</span>
+      <span class="result-pill">Page acquired commercially</span>
+      <span class="result-pill">Daily content for 12 months</span>
+      <span class="result-pill">High DM engagement</span>
+    </div>
+  </div>
+
+  <div class="case-card reveal">
+    <div class="case-number">02</div>
+    <span class="case-tag">Product Operations · iOS App</span>
+    <h3 class="case-title">Uhoo App — Managing a Social Networking Product from Code to Launch</h3>
+    <p class="case-sub">Uhoo Social Networking Startup · Sep 2025 – Feb 2026</p>
+    <p class="case-body">
+      Joined Uhoo as App Manager and coordinated the full lifecycle of a rebuilt iOS social networking app — from restoring a broken 2019 codebase to deploying a stable, polished build on Apple TestFlight.
+      <br><br>
+      Over five months I bridged the gap between development and product goals, ran end-to-end functionality testing, identified and escalated critical bugs, and ensured the product met quality standards before public access. The experience gave me deep insight into how digital products are built, shipped, and positioned for an audience.
+    </p>
+    <div class="case-results">
+      <span class="result-pill">iOS app deployed to TestFlight</span>
+      <span class="result-pill">5-month full lifecycle</span>
+      <span class="result-pill">Swift / SwiftUI</span>
+      <span class="result-pill">Product & dev coordination</span>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+
+<section class="skills">
+  <div class="section-tag" style="color:#6aabff">Skills & Tools</div>
+  <h2 class="section-title reveal">What I Bring</h2>
+  <div class="skills-grid reveal">
+    <div class="skill-block">
+      <div class="skill-block-title">Social Media</div>
+      <div class="skill-item">Content Strategy</div>
+      <div class="skill-item">Caption Writing</div>
+      <div class="skill-item">Audience Growth</div>
+      <div class="skill-item">Community Management</div>
+      <div class="skill-item">DM & Inbox Handling</div>
+      <div class="skill-item">Trend Identification</div>
+      <div class="skill-item">Brand Voice Development</div>
+      <div class="skill-item">Engagement Optimization</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Platforms</div>
+      <div class="skill-item">Instagram</div>
+      <div class="skill-item">Twitter / X</div>
+      <div class="skill-item">Facebook</div>
+      <div class="skill-item">LinkedIn</div>
+      <div class="skill-item">WhatsApp Business</div>
+      <div class="skill-block-title" style="margin-top:20px">Tools</div>
+      <div class="skill-item">Canva</div>
+      <div class="skill-item">CapCut</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Other Skills</div>
+      <div class="skill-item">Campaign Strategy</div>
+      <div class="skill-item">Product Management</div>
+      <div class="skill-item">Public Communication</div>
+      <div class="skill-item">Storytelling</div>
+      <div class="skill-item">Team Collaboration</div>
+      <div class="skill-item">Fast Self-directed Learning</div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+
+<section class="experience">
+  <div class="section-tag">Experience</div>
+  <h2 class="section-title reveal">Professional History</h2>
+
+  <div class="exp-item reveal">
+    <div class="exp-date">Sep 2025 — Feb 2026</div>
+    <div>
+      <div class="exp-role">App Manager & Product Coordinator</div>
+      <div class="exp-org">Uhoo · iOS Social Networking Startup</div>
+      <ul class="exp-bullets">
+        <li>Managed full product lifecycle from codebase restoration to live TestFlight deployment across multiple release cycles.</li>
+        <li>Coordinated development and product goals over 5 months, maintaining build stability and delivering a polished user-ready experience.</li>
+        <li>Tested app functionality end-to-end, identified critical issues, and upheld quality standards ahead of public launch.</li>
+        <li>Contributed to growth strategy for a startup connecting people around shared interests in coffee shops.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item reveal">
+    <div class="exp-date">2020 — 2021</div>
+    <div>
+      <div class="exp-role">Founder & Content Manager</div>
+      <div class="exp-org">Disturbingachievers · Instagram Campus Blog</div>
+      <ul class="exp-bullets">
+        <li>Founded and scaled one of the fastest-growing anonymous campus blogs to 1,000+ followers organically — zero paid promotion.</li>
+        <li>Produced daily high-performing content with captions that consistently drove shares, saves, and comments.</li>
+        <li>Managed high-volume DM inbox, building genuine audience relationships and sustaining community trust at scale.</li>
+        <li>Page was later acquired and converted into a commercial operation — validating its reach and brand impact.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="exp-item reveal">
+    <div class="exp-date">2024</div>
+    <div>
+      <div class="exp-role">Campaign Manager & Strategist</div>
+      <div class="exp-org">Student Union Elections · Achievers University</div>
+      <ul class="exp-bullets">
+        <li>Designed and executed winning campaign strategies for faculty-level and university-wide student union elections.</li>
+        <li>Crafted targeted messaging, led campaign teams, and adapted real-time strategy based on live audience sentiment.</li>
+        <li>Managed event promotion and logistics for football tournaments and community activities.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTENT SAMPLES -->
+
+<section class="samples">
+  <div class="section-tag">Content Samples</div>
+  <h2 class="section-title reveal">Sample Content I Create</h2>
+  <div class="samples-grid">
+
+
+<div class="sample-card reveal">
+  <div class="sample-platform">Instagram · Engagement Post</div>
+  <div class="sample-title">"The silent ones are the most dangerous 👀"</div>
+  <div class="sample-text">
+    Caption style: short, punchy, curiosity-driven. Designed to spark comments and shares. The kind of post that makes someone tag a friend immediately.
+  </div>
+  <div class="sample-metric">Strategy: Curiosity gap + social proof trigger</div>
+</div>
+
+<div class="sample-card reveal">
+  <div class="sample-platform">Twitter / X · Brand Voice</div>
+  <div class="sample-title">"We don't do ordinary. Never have."</div>
+  <div class="sample-text">
+    Confident, direct brand statement. Short-form copy that builds identity and authority in one line. Designed for high repost rate.
+  </div>
+  <div class="sample-metric">Strategy: Brand positioning + authority building</div>
+</div>
+
+<div class="sample-card reveal">
+  <div class="sample-platform">Instagram · Community Post</div>
+  <div class="sample-title">"Drop your confession below 👇 (anonymous, we promise)"</div>
+  <div class="sample-text">
+    Interactive community-building format. Drives DMs and comments through safe participation — the core mechanic behind Disturbingachievers' growth.
+  </div>
+  <div class="sample-metric">Strategy: Community participation + DM volume driver</div>
+</div>
+
+<div class="sample-card reveal">
+  <div class="sample-platform">LinkedIn · Professional Post</div>
+  <div class="sample-title">"I built a 1,000-follower audience with ₦0 in ads. Here's how."</div>
+  <div class="sample-text">
+    Thought leadership format. Opens with a bold claim, delivers value in the thread. Positions the brand (or person) as an authority worth following.
+  </div>
+  <div class="sample-metric">Strategy: Credibility + organic reach via value content</div>
+</div>
+
+<div class="sample-card reveal">
+  <div class="sample-platform">WhatsApp Business · Broadcast</div>
+  <div class="sample-title">"👀 Something big drops tomorrow. Don't miss it."</div>
+  <div class="sample-text">
+    Teaser broadcast message. Short, urgent, personal. Creates anticipation before a product or content launch. High open rate format.
+  </div>
+  <div class="sample-metric">Strategy: Launch anticipation + urgency</div>
+</div>
+
+<div class="sample-card reveal">
+  <div class="sample-platform">Instagram · Storytelling</div>
+  <div class="sample-title">"Nobody believed it would work. Then it hit 1,000."</div>
+  <div class="sample-text">
+    Narrative-driven caption. Uses the underdog arc to build emotional connection. Stops the scroll by leading with tension before the win.
+  </div>
+  <div class="sample-metric">Strategy: Emotional storytelling + social proof</div>
+</div>
+
+
+  </div>
+</section>
+
+<!-- CAMPAIGN -->
+
+<section class="campaign">
+  <div class="section-tag">Campaign Work</div>
+  <h2 class="section-title reveal">Election Campaign Strategy</h2>
+  <div class="campaign-card reveal">
+    <div>
+      <div class="campaign-label">2024 · Achievers University</div>
+      <h3 class="campaign-title">Faculty & General Student Union Election Campaigns</h3>
+      <p class="campaign-body">
+        Designed and executed full end-to-end campaign strategies for both faculty-level and university-wide student union elections. Led messaging, coordinated teams, monitored audience sentiment in real time, and adapted strategy on the fly — delivering winning results under pressure.<br><br>
+        Also managed event promotion and logistics for football tournaments and community activities across the university.
+      </p>
+    </div>
+    <div class="campaign-outcomes">
+      <div class="outcome">
+        <div class="outcome-title">Targeted Messaging</div>
+        <div class="outcome-desc">Crafted audience-specific messaging for different student groups</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-title">Real-time Adaptation</div>
+        <div class="outcome-desc">Monitored live sentiment and pivoted strategy on the ground</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-title">Team Coordination</div>
+        <div class="outcome-desc">Led campaign teams across faculty and general election levels</div>
+      </div>
+      <div class="outcome">
+        <div class="outcome-title">Winning Results</div>
+        <div class="outcome-desc">Delivered successful outcomes under competitive pressure</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <div class="footer-name">Oluwasurefunmi <span>Daniel Ariyo</span></div>
+  <div class="footer-links">
+    <a class="footer-link" href="mailto:ariyosurefunmi@gmail.com">ariyosurefunmi@gmail.com</a>
+    <a class="footer-link" href="tel:+2348137815999">+234 813 781 5999</a>
+    <a class="footer-link" href="https://linkedin.com/in/oluwasurefunmi-ariyo" target="_blank">LinkedIn</a>
+    <span class="footer-link">Ibadan, Nigeria · Open to Remote</span>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
