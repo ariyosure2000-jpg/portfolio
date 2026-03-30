@@ -1,1 +1,314 @@
-  
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Oluwasurefunmi Daniel Ariyo — Social Media Portfolio</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:Georgia,'Times New Roman',serif;background:#ffffff;color:#0a0a0a;font-size:16px;line-height:1.7;}
+:root{--navy:#0a2540;--blue:#0057b8;--lightblue:#ddeeff;--ink:#0a0a0a;--white:#ffffff;--offwhite:#f4f7fb;--border:#ccd8ea;}
+nav{background:var(--navy);padding:18px 6%;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;}
+.nav-name{font-family:Georgia,serif;font-size:18px;font-weight:bold;color:#ffffff;}
+.nav-links{display:flex;gap:28px;list-style:none;}
+.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;letter-spacing:0.08em;text-transform:uppercase;}
+.nav-links a:hover{color:#ffffff;}
+.hero{background:var(--navy);padding:80px 6% 90px;color:var(--white);border-bottom:4px solid var(--blue);}
+.hero-tag{display:inline-block;background:rgba(0,87,184,0.3);border:1px solid rgba(0,87,184,0.5);color:#88bbee;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:0.2em;text-transform:uppercase;padding:6px 16px;margin-bottom:28px;}
+.hero h1{font-family:Georgia,serif;font-size:clamp(36px,5.5vw,68px);font-weight:bold;line-height:1.1;color:#ffffff;margin-bottom:6px;}
+.hero h1 span{color:#6aaeff;font-style:italic;}
+.hero-role{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:bold;color:#88aacc;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;margin-top:14px;}
+.hero-bio{font-size:17px;font-weight:bold;color:rgba(255,255,255,0.88);max-width:600px;line-height:1.75;margin-bottom:36px;}
+.hero-contacts{display:flex;flex-wrap:wrap;gap:12px;}
+.chip{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:#ffffff;font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;padding:8px 18px;border-radius:4px;text-decoration:none;}
+.chip:hover{background:rgba(0,87,184,0.4);}
+section{padding:70px 6%;}
+section:nth-of-type(even){background:var(--offwhite);}
+.section-label{font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;letter-spacing:0.22em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;}
+.section-title{font-family:Georgia,serif;font-size:clamp(26px,3.5vw,40px);font-weight:bold;color:var(--navy);margin-bottom:40px;line-height:1.2;}
+.about-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:start;}
+.about-text p{font-size:16px;font-weight:bold;color:#1a1a2e;margin-bottom:18px;line-height:1.8;}
+.about-text strong{color:var(--navy);}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.stat{background:var(--navy);padding:26px 20px;border-left:4px solid var(--blue);}
+.stat-number{font-family:Georgia,serif;font-size:34px;font-weight:bold;color:#6aaeff;display:block;line-height:1;margin-bottom:6px;}
+.stat-label{font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
+.case{background:var(--white);border:1px solid var(--border);border-top:4px solid var(--navy);padding:44px 40px;margin-bottom:24px;}
+.case-tag{background:var(--lightblue);color:var(--blue);font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.15em;text-transform:uppercase;padding:5px 14px;display:inline-block;margin-bottom:16px;}
+.case h3{font-family:Georgia,serif;font-size:22px;font-weight:bold;color:var(--navy);margin-bottom:6px;line-height:1.3;}
+.case-meta{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;color:#6677aa;letter-spacing:0.06em;margin-bottom:20px;}
+.case p{font-size:15px;font-weight:bold;color:#1a1a2e;line-height:1.8;margin-bottom:14px;}
+.case-pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:22px;}
+.pill{background:var(--navy);color:#6aaeff;font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;padding:7px 16px;letter-spacing:0.06em;}
+.skills-bg{background:var(--navy);}
+.skills-bg .section-label{color:#6aaeff;}
+.skills-bg .section-title{color:var(--white);}
+.skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.skill-block{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:30px 26px;}
+.skill-block-title{font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.2em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.skill-item{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:rgba(255,255,255,0.92);padding:5px 0;display:flex;align-items:center;gap:8px;}
+.skill-item::before{content:'›';color:var(--blue);font-size:18px;line-height:1;font-weight:bold;}
+.exp-item{display:grid;grid-template-columns:170px 1fr;gap:36px;padding:36px 0;border-bottom:1px solid var(--border);}
+.exp-item:first-of-type{border-top:1px solid var(--border);}
+.exp-date{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;color:var(--blue);letter-spacing:0.04em;padding-top:4px;}
+.exp-title{font-family:Georgia,serif;font-size:20px;font-weight:bold;color:var(--navy);margin-bottom:4px;}
+.exp-org{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;color:#556688;letter-spacing:0.04em;margin-bottom:16px;text-transform:uppercase;}
+.exp-bullets{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.exp-bullets li{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:#1a1a2e;padding-left:18px;position:relative;line-height:1.65;}
+.exp-bullets li::before{content:'→';position:absolute;left:0;color:var(--blue);font-weight:bold;}
+.samples-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+.sample{background:var(--white);border:1px solid var(--border);border-top:3px solid var(--blue);padding:28px 24px;}
+.sample-platform{font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.14em;text-transform:uppercase;color:var(--blue);margin-bottom:12px;}
+.sample h4{font-family:Georgia,serif;font-size:16px;font-weight:bold;color:var(--navy);margin-bottom:10px;line-height:1.35;}
+.sample p{font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;color:#334;line-height:1.7;}
+.sample-strategy{margin-top:16px;padding-top:14px;border-top:1px solid var(--border);font-family:Arial,Helvetica,sans-serif;font-size:11px;font-weight:bold;color:var(--blue);letter-spacing:0.04em;}
+.campaign-box{background:var(--navy);padding:50px;display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start;}
+.campaign-label{font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:bold;letter-spacing:0.2em;text-transform:uppercase;color:#6aaeff;margin-bottom:14px;}
+.campaign-box h3{font-family:Georgia,serif;font-size:24px;font-weight:bold;color:var(--white);margin-bottom:18px;line-height:1.25;}
+.campaign-box p{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:bold;color:rgba(255,255,255,0.85);line-height:1.75;}
+.outcomes{display:flex;flex-direction:column;gap:14px;}
+.outcome{background:rgba(255,255,255,0.06);border-left:3px solid var(--blue);padding:16px 20px;}
+.outcome-title{font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:bold;color:var(--white);margin-bottom:4px;}
+.outcome-desc{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;color:rgba(255,255,255,0.7);}
+footer{background:#050e1a;padding:50px 6%;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px;border-top:3px solid var(--blue);}
+.footer-name{font-family:Georgia,serif;font-size:20px;font-weight:bold;color:var(--white);}
+.footer-name span{color:#6aaeff;font-style:italic;}
+.footer-contacts{display:flex;flex-direction:column;align-items:flex-end;gap:6px;}
+.footer-contacts a,.footer-contacts span{font-family:Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;color:rgba(255,255,255,0.6);text-decoration:none;letter-spacing:0.04em;}
+.footer-contacts a:hover{color:#6aaeff;}
+@media(max-width:768px){.about-grid,.skills-grid,.samples-grid,.campaign-box{grid-template-columns:1fr;}.exp-item{grid-template-columns:1fr;gap:6px;}.stats{grid-template-columns:1fr 1fr;}section{padding:50px 5%;}nav{padding:14px 5%;}.nav-links{gap:16px;}.case{padding:28px 22px;}.campaign-box{padding:30px 22px;}footer{flex-direction:column;align-items:flex-start;}.footer-contacts{align-items:flex-start;}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="nav-name">Oluwasurefunmi D. Ariyo</div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#work">Work</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<div class="hero">
+  <div class="hero-tag">Social Media Portfolio</div>
+  <h1>Oluwasurefunmi<br><span>Daniel Ariyo</span></h1>
+  <div class="hero-role">Social Media Manager &nbsp;·&nbsp; Content Strategist &nbsp;·&nbsp; Digital Growth Specialist</div>
+  <p class="hero-bio">I build audiences, craft stories, and grow brands — organically. Based in Ibadan, Nigeria. Open to remote opportunities worldwide.</p>
+  <div class="hero-contacts">
+    <a class="chip" href="mailto:ariyosurefunmi@gmail.com">ariyosurefunmi@gmail.com</a>
+    <a class="chip" href="tel:+2348137815999">+234 813 781 5999</a>
+    <a class="chip" href="https://linkedin.com/in/oluwasurefunmi-ariyo" target="_blank">LinkedIn</a>
+    <span class="chip">Ibadan, Nigeria · Open to Remote</span>
+  </div>
+</div>
+
+<section id="about">
+  <div class="section-label">About Me</div>
+  <h2 class="section-title">Who I Am</h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm a <strong>Social Media Manager and Content Strategist</strong> based in Ibadan, Nigeria, with a proven track record of building engaged audiences from zero — without spending a single naira on ads.</p>
+      <p>I founded one of the <strong>fastest-growing anonymous campus blogs</strong> at Achievers University, grew it to 1,000+ organic followers within a year, and built a community so strong the page was acquired and converted into a commercial operation after I left.</p>
+      <p>Beyond content, I've managed <strong>full digital product lifecycles</strong>, led winning election campaigns, and bring the precision and accountability of a <strong>triple-certified healthcare professional</strong> into everything I do.</p>
+      <p>I understand what makes people stop scrolling — and I know how to turn that into real growth for a brand.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><span class="stat-number">1,000+</span><span class="stat-label">Organic Followers Built</span></div>
+      <div class="stat"><span class="stat-number">₦0</span><span class="stat-label">Paid Promotion Used</span></div>
+      <div class="stat"><span class="stat-number">5 mo.</span><span class="stat-label">App Lifecycle Managed</span></div>
+      <div class="stat"><span class="stat-number">3×</span><span class="stat-label">Certified Professional</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="section-label">Case Studies</div>
+  <h2 class="section-title">Work That Speaks</h2>
+  <div class="case">
+    <span class="case-tag">Instagram · Campus Blog</span>
+    <h3>Disturbingachievers — Growing an Anonymous Brand to 1,000+ Followers</h3>
+    <div class="case-meta">Achievers University, Owo · 2020 – 2021</div>
+    <p>I built and ran one of the fastest-growing anonymous campus blogs at Achievers University entirely from scratch. No budget, no team, no paid promotion — just a deep understanding of what the audience wanted to see and the discipline to show up for it every single day.</p>
+    <p>I curated trending campus content, wrote captions that sparked conversation, managed a high-volume DM inbox personally, and maintained a consistent anonymous brand identity throughout. The page grew to 1,000+ followers organically within its first year and built a loyal, highly engaged community.</p>
+    <p>The page's impact was so significant that when the university banned anonymous campus blogs, another party acquired it and converted it into a commercial business operation — one of the strongest validations a content creator can receive.</p>
+    <div class="case-pills">
+      <span class="pill">1,000+ organic followers</span>
+      <span class="pill">Zero paid promotion</span>
+      <span class="pill">Page acquired commercially</span>
+      <span class="pill">Daily content · 12 months</span>
+      <span class="pill">High DM engagement</span>
+    </div>
+  </div>
+  <div class="case">
+    <span class="case-tag">Product Operations · iOS App</span>
+    <h3>Uhoo App — Managing a Social Networking Product from Code to Launch</h3>
+    <div class="case-meta">Uhoo Social Networking Startup · Sep 2025 – Feb 2026</div>
+    <p>Joined Uhoo as App Manager and coordinated the full lifecycle of a rebuilt iOS social networking app — from restoring a broken codebase to deploying a stable, polished build on Apple TestFlight.</p>
+    <p>Over five months I bridged the gap between development and product goals, ran end-to-end functionality testing, identified and escalated critical bugs, and ensured the product met quality standards before public access. This experience gave me deep insight into how digital products are built, shipped, and positioned for an audience.</p>
+    <div class="case-pills">
+      <span class="pill">iOS app deployed to TestFlight</span>
+      <span class="pill">5-month full lifecycle</span>
+      <span class="pill">Swift / SwiftUI</span>
+      <span class="pill">Product & dev coordination</span>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="skills-bg">
+  <div class="section-label">Skills & Tools</div>
+  <h2 class="section-title">What I Bring</h2>
+  <div class="skills-grid">
+    <div class="skill-block">
+      <div class="skill-block-title">Social Media Skills</div>
+      <div class="skill-item">Content Strategy</div>
+      <div class="skill-item">Caption Writing</div>
+      <div class="skill-item">Audience Growth</div>
+      <div class="skill-item">Community Management</div>
+      <div class="skill-item">DM & Inbox Handling</div>
+      <div class="skill-item">Trend Identification</div>
+      <div class="skill-item">Brand Voice Development</div>
+      <div class="skill-item">Engagement Optimization</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Platforms</div>
+      <div class="skill-item">Instagram</div>
+      <div class="skill-item">Twitter / X</div>
+      <div class="skill-item">Facebook</div>
+      <div class="skill-item">LinkedIn</div>
+      <div class="skill-item">WhatsApp Business</div>
+      <div class="skill-block-title" style="margin-top:22px">Tools</div>
+      <div class="skill-item">Canva</div>
+      <div class="skill-item">CapCut</div>
+    </div>
+    <div class="skill-block">
+      <div class="skill-block-title">Other Skills</div>
+      <div class="skill-item">Campaign Strategy</div>
+      <div class="skill-item">Product Management</div>
+      <div class="skill-item">Public Communication</div>
+      <div class="skill-item">Storytelling</div>
+      <div class="skill-item">Team Collaboration</div>
+      <div class="skill-item">Fast Self-directed Learning</div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Professional History</h2>
+  <div class="exp-item">
+    <div class="exp-date">Sep 2025 — Feb 2026</div>
+    <div>
+      <div class="exp-title">App Manager & Product Coordinator</div>
+      <div class="exp-org">Uhoo · iOS Social Networking Startup</div>
+      <ul class="exp-bullets">
+        <li>Managed full product lifecycle from codebase restoration to live TestFlight deployment across multiple release cycles.</li>
+        <li>Coordinated development and product goals over 5 months, maintaining build stability and delivering a polished user-ready experience.</li>
+        <li>Tested app functionality end-to-end, identified critical issues, and upheld quality standards ahead of public launch.</li>
+        <li>Contributed to growth strategy for a startup connecting people around shared interests in coffee shops.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="exp-item">
+    <div class="exp-date">2020 — 2021</div>
+    <div>
+      <div class="exp-title">Founder & Content Manager</div>
+      <div class="exp-org">Disturbingachievers · Instagram Campus Blog</div>
+      <ul class="exp-bullets">
+        <li>Founded and scaled one of the fastest-growing anonymous campus blogs to 1,000+ followers organically — zero paid promotion.</li>
+        <li>Produced daily high-performing content with captions that consistently drove shares, saves, and comments.</li>
+        <li>Managed high-volume DM inbox, building genuine audience relationships and sustaining community trust at scale.</li>
+        <li>Page was later acquired and converted into a commercial operation — validating its reach and brand impact.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="exp-item">
+    <div class="exp-date">2024</div>
+    <div>
+      <div class="exp-title">Campaign Manager & Strategist</div>
+      <div class="exp-org">Student Union Elections · Achievers University</div>
+      <ul class="exp-bullets">
+        <li>Designed and executed winning campaign strategies for faculty-level and university-wide student union elections.</li>
+        <li>Crafted targeted messaging, led campaign teams, and adapted real-time strategy based on live audience sentiment.</li>
+        <li>Managed event promotion and logistics for football tournaments and community activities.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Content Samples</div>
+  <h2 class="section-title">Sample Content I Create</h2>
+  <div class="samples-grid">
+    <div class="sample">
+      <div class="sample-platform">Instagram · Engagement Post</div>
+      <h4>"The silent ones are the most dangerous 👀"</h4>
+      <p>Short, punchy, curiosity-driven caption designed to spark comments and shares. Makes someone tag a friend immediately.</p>
+      <div class="sample-strategy">Strategy: Curiosity gap + social proof trigger</div>
+    </div>
+    <div class="sample">
+      <div class="sample-platform">Twitter / X · Brand Voice</div>
+      <h4>"We don't do ordinary. Never have."</h4>
+      <p>Confident brand statement. Short-form copy that builds identity and authority in one line. Designed for high repost rate.</p>
+      <div class="sample-strategy">Strategy: Brand positioning + authority building</div>
+    </div>
+    <div class="sample">
+      <div class="sample-platform">Instagram · Community Post</div>
+      <h4>"Drop your confession below 👇 (anonymous, we promise)"</h4>
+      <p>Interactive community-building format. Drives DMs and comments — the core mechanic behind Disturbingachievers' growth.</p>
+      <div class="sample-strategy">Strategy: Community participation + DM volume</div>
+    </div>
+    <div class="sample">
+      <div class="sample-platform">LinkedIn · Thought Leadership</div>
+      <h4>"I built a 1,000-follower audience with ₦0 in ads. Here's how."</h4>
+      <p>Opens with a bold claim, delivers value in the thread. Positions the brand as an authority worth following.</p>
+      <div class="sample-strategy">Strategy: Credibility + organic reach via value</div>
+    </div>
+    <div class="sample">
+      <div class="sample-platform">WhatsApp Business · Broadcast</div>
+      <h4>"👀 Something big drops tomorrow. Don't miss it."</h4>
+      <p>Teaser broadcast message. Short, urgent, personal. Creates anticipation before a product or content launch.</p>
+      <div class="sample-strategy">Strategy: Launch anticipation + urgency</div>
+    </div>
+    <div class="sample">
+      <div class="sample-platform">Instagram · Storytelling</div>
+      <h4>"Nobody believed it would work. Then it hit 1,000."</h4>
+      <p>Narrative caption using the underdog arc. Stops the scroll by leading with tension before the win.</p>
+      <div class="sample-strategy">Strategy: Emotional storytelling + social proof</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-label">Campaign Work</div>
+  <h2 class="section-title">Election Campaign Strategy</h2>
+  <div class="campaign-box">
+    <div>
+      <div class="campaign-label">2024 · Achievers University</div>
+      <h3>Faculty & General Student Union Election Campaigns</h3>
+      <p>Designed and executed full end-to-end campaign strategies for both faculty-level and university-wide student union elections. Led messaging, coordinated teams, monitored audience sentiment in real time, and adapted strategy on the fly — delivering winning results under pressure.<br><br>Also managed event promotion and logistics for football tournaments and community activities across the university.</p>
+    </div>
+    <div class="outcomes">
+      <div class="outcome"><div class="outcome-title">Targeted Messaging</div><div class="outcome-desc">Crafted audience-specific messaging for different student groups</div></div>
+      <div class="outcome"><div class="outcome-title">Real-time Adaptation</div><div class="outcome-desc">Monitored live sentiment and pivoted strategy on the ground</div></div>
+      <div class="outcome"><div class="outcome-title">Team Coordination</div><div class="outcome-desc">Led campaign teams across faculty and general election levels</div></div>
+      <div class="outcome"><div class="outcome-title">Winning Results</div><div class="outcome-desc">Delivered successful outcomes under competitive pressure</div></div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-name">Oluwasurefunmi <span>Daniel Ariyo</span></div>
+  <div class="footer-contacts">
+    <a href="mailto:ariyosurefunmi@gmail.com">ariyosurefunmi@gmail.com</a>
+    <a href="tel:+2348137815999">+234 813 781 5999</a>
+    <a href="https://linkedin.com/in/oluwasurefunmi-ariyo" target="_blank">linkedin.com/in/oluwasurefunmi-ariyo</a>
+    <span>Ibadan, Nigeria · Open to Remote</span>
+  </div>
+</footer>
+
+</body>
+</html>  
